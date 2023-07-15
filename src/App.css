@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+*,*::before,*::after{
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  margin: 0;
+  background: linear-gradient(to right,rgb(124, 115, 229),rgb(223, 8, 223));
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.calculator-grid{
+  display: grid;
+  margin-top: 2rem;
+  justify-content: center;
+  grid-template-columns: repeat(4,6rem);
+  grid-template-rows: minmax(7rem,auto) repeat(5,6rem);
+
+}
+.calculator-grid > button{
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: rgba(255, 255, 255,.75);
+}
+.calculator-grid > button:hover,
+.calculator-grid > button:focus{
+  background-color:rgba(255, 255, 255,.9);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.span-two{
+  grid-column: span 2;
+}
+.my-output{
+  grid-column: 1 / -1;
+  background-color: rgba(0, 0, 0,.75);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: .75rem;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.my-output .previous-operand{
+  color: rgba(255, 255, 255,.75);
+  font-size: 1.5rem;
+}
+.my-output .current-operand{
+  color: rgba(255, 255, 255);
+  font-size: 2.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+@media (max-width: 768px) {
+  .calculator-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: minmax(7rem, auto) repeat(10, 1fr);
+  }
+  
+  .calculator-grid > button {
+    font-size: 1.5rem;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 480px) {
+  .calculator-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: minmax(7rem, auto) repeat(20, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+  
+  .calculator-grid > button {
+    font-size: 1.2rem;
   }
+  
+  .span-two {
+    grid-column: 1 / -1;
+  }
+}
+
+.navbar {
+  
+  background: linear-gradient(to right,rgb(124, 115, 229),rgb(223, 8, 223));
+}
+
+.font-formatting{
+  font-size: large;
+  color: aliceblue;
+  border: 1px solid aliceblue;
+  padding: 6px;
+  border-radius: 2px;
+}
+h1{
+  color: aliceblue;
 }
